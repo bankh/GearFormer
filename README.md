@@ -28,12 +28,12 @@ Clone the GearFormer repository that will be used with the provided Docker build
 <pre>
 git clone https://github.com/GearFormer/GearFormer.git
 sudo apt update && sudo apt install -y git-lfs # in case git-lfs is not installed on the system
+cd GearFormer # assumed that the git cloned inside the default directory
 git lfs pull # to pull the dataset
 </pre>
 
-Build Docker container where the image name is gearformer,
+Build Docker container where the image name is gearformer and you should be inside the cloned folder (e.g., `cd GearFormer`),
 <pre>
-cd GearFormer # assumed that the git cloned inside the default directory
 docker build -t gearformer .
 docker run --gpus all -it -v ./:/app gearformer
 </pre>
