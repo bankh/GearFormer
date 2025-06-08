@@ -23,7 +23,7 @@ Paper: https://arxiv.org/abs/2409.06016
 
 Website: https://gearformer.github.io/
 
-**Setup**
+**Setup**  
 Clone the GearFormer repository that will be used with the provided Docker build.
 <pre>
 git clone https://github.com/GearFormer/GearFormer.git
