@@ -1,4 +1,21 @@
-## GearFormer: Deep Generative Model for Mechanical System Configuration Design
+<div align="center" style="font-size: 22pt;"> 
+  <h1 style="text-align: center;"> ⚙️GearFormer⚙️: Deep Generative Model for Mechanical System Configuration Design </h1>
+  <a href="https://img.shields.io/badge/Made%20with-Python-1f425f.svg">
+    <img src="https://img.shields.io/badge/Made%20with-Python-1f425f.svg" alt="Badge: Made with Python"/>
+  </a>
+  <a href="https://img.shields.io/github/stars/GearFormer/GearFormer">
+    <img src="https://img.shields.io/github/stars/GearFormer/GearFormer" alt="GitHub User's stars"/>
+  </a>
+  <a href="https://img.shields.io/github/forks/GearFormer/GearFormer">
+    <img src="https://img.shields.io/github/forks/GearFormer/GearFormer" alt="GitHub forks"/>
+  </a>
+  <a href="https://img.shields.io/github/contributors-anon/GearFormer/GearFormer">
+    <img src="https://img.shields.io/github/contributors-anon/GearFormer/GearFormer" alt="GitHub contributors"/>
+  </a>
+  <a href="https://github.com/bankh/DocumentLabeler/blob/master/LICENSE">
+    <img alt="License: MIT" src="https://img.shields.io/badge/license-MIT-yellow.svg" target="_blank" />
+  </a>
+</div>
 
 Deep generative model approach to mechanical system configuration design, focusing on gear train synthesis.
 
@@ -7,9 +24,18 @@ Paper: https://arxiv.org/abs/2409.06016
 Website: https://gearformer.github.io/
 
 **Setup**
+Clone the GearFormer repository that will be used with the provided Docker build.
 <pre>
-docker build -t [image name] .
-docker run --gpus all -it -v [GearFormer repo directory]:/app gearformer
+git clone https://github.com/GearFormer/GearFormer.git
+sudo apt update && sudo apt install -y git-lfs # in case git-lfs is not installed on the system
+git lfs pull # to pull the dataset
+</pre>
+
+Build Docker container where the image name is gearformer,
+<pre>
+cd GearFormer # assumed that the git cloned inside the default directory
+docker build -t gearformer .
+docker run --gpus all -it -v ./:/app gearformer
 </pre>
 
 **GearFormer Dataset**
