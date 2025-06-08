@@ -134,6 +134,20 @@ problems_file = "data/benchmark_problems.json"
 results_file = "data/output_MCTS_hybrid.json"
 ```
 
+**Cite**  
+Please cite the respective paper if you use this repository in your work:  
+<pre>
+@inproceedings{etesam2025deep,
+  title={Deep generative model for mechanical system configuration design},
+  author={Etesam, Yasaman and Cheong, Hyunmin and Ataei, Mohammadmehdi and Jayaraman, Pradeep Kumar},
+  booktitle={Proceedings of the AAAI Conference on Artificial Intelligence},
+  volume={39},
+  number={16},
+  pages={16496--16504},
+  year={2025}
+}
+</pre>
+
 Copyright 2025, Autodesk, Inc.
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software on a non-commercial research or educational basis only, the rights to use, copy, modify, merge, publish, distribute, and/or sublicense the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
