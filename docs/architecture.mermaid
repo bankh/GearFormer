@@ -1,0 +1,41 @@
+graph TD
+  %% Encoder Module
+  subgraph Encoder_Module
+    ReqVec["Requirement Vector"] --> MLP_Embed["MLP: Linear → ReLU → BatchNorm"]
+    MLP_Embed --> BiEncoder["Transformer Encoder"]
+    BiEncoder --> Context["Context Embedding"]
+  end
+
+  %% Decoder Module
+  subgraph Decoder_Module
+    Context --> Dec_SelfCross["Decoder: Self-Attention + Cross-Attention"]
+    Dec_SelfCross --> TokenPred["Token Prediction (Softmax)"]
+    TokenPred --> Sequence["Generated Sequence (C1, I1, C2, …)"]
+  end
+
+  %% Loss & Objective Module
+  subgraph Loss_Module
+    Sequence --> Gumbel["Gumbel-Softmax Sampling"]
+    Gumbel --> WeightLookup["Component Weight Lookup"]
+    WeightLookup --> Obj["Objective = sum(weights)"]
+    TokenPred --> CE["Cross-Entropy Loss"]
+    CE --> TotalLoss["Total Loss = CE + α × Objective"]
+    Obj --> TotalLoss
+  end
+
+  %% Data Pipeline
+  subgraph Data_Pipeline
+    DSL["DSL: Grammar + Lexicon"] --> SeqGen["Sequence Generation"]
+    SeqGen --> FeasCheck["Physical Feasibility Check"]
+    FeasCheck --> Dataset["Dataset (~7.36M samples)"]
+    Dataset --> Training["Train / Val / Test Split"]
+    Training --> Encoder_Module
+    Training --> Decoder_Module
+    Training --> Loss_Module
+  end
+
+  %% Hybrid Search Module
+  subgraph Hybrid_Search
+    SearchInit["Search (EDA / MCTS) on first k tokens"] --> Dec_SelfCross
+    Dec_SelfCross --> Evaluate["Simulation & Evaluation"]
+  end
